@@ -1,0 +1,85 @@
+{
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "name": "Laboratorio 08 - Usuarios"
+  },
+  "item": [
+    {
+      "name": "Listar usuarios",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/users"
+      }
+    },
+    {
+      "event": [
+        {
+          "script": {
+            "exec": [
+              "pm.test(\"Creado\", () => pm.response.to.have.status(201));",
+              "if (pm.response.code === 201) pm.collectionVariables.set(\"userId\", pm.response.json()._id);"
+            ],
+            "type": "text/javascript"
+          },
+          "listen": "test"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "value": "application/json",
+            "key": "Content-Type"
+          }
+        ],
+        "url": "{{baseUrl}}/api/users",
+        "body": {
+          "raw": "{\"name\":\"Usuario Postman\",\"email\":\"postman@example.com\"}",
+          "mode": "raw"
+        }
+      },
+      "name": "Crear usuario"
+    },
+    {
+      "name": "Consultar usuario",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/users/{{userId}}"
+      }
+    },
+    {
+      "name": "Actualizar usuario",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "value": "application/json",
+            "key": "Content-Type"
+          }
+        ],
+        "url": "{{baseUrl}}/api/users/{{userId}}",
+        "body": {
+          "raw": "{\"name\":\"Usuario actualizado\"}",
+          "mode": "raw"
+        }
+      }
+    },
+    {
+      "name": "Eliminar usuario",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/users/{{userId}}"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "value": "http://localhost:3000",
+      "key": "baseUrl"
+    },
+    {
+      "value": "",
+      "key": "userId"
+    }
+  ]
+}
