@@ -66,3 +66,8 @@ En GitHub > Actions se comprueba el pipeline; en Render > Deploys se verifica
 que el mismo commit llegue a estado Live. Un workflow exitoso confirma que
 Render aceptó el hook; el resultado final se confirma en Render y en el API.
 
+Primera comprobación de la parte 1: el commit `1fbb60f` pasó las seis pruebas
+en GitHub Actions y fue publicado por Deploy Hook en Render con estado Live.
+El siguiente cambio actualiza las acciones a v6 y fija Ubuntu 24.04 para
+comprobar nuevamente el despliegue automático al hacer push a `main`.
+
