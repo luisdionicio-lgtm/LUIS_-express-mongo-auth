@@ -1,7 +1,8 @@
 # Express y MongoDB Atlas
 
 Laboratorio 08: API CRUD de usuarios organizado en modelos, repositorios,
-servicios, controladores y rutas. La sección TAREA (CI/CD y JWT) queda pendiente.
+servicios, controladores y rutas. La parte 1 de TAREA configura CI/CD;
+la parte 2 (JWT) queda pendiente.
 
 ## Ejecutar localmente
 
@@ -45,4 +46,23 @@ Las pruebas de CRUD se pueden ejecutar desde Postman importando la colección in
 API publicado: https://luis-express-mongo-auth.onrender.com/api/users
 
 Validación: CRUD comprobado localmente y en producción. Evidencia en evidencias/render.png.
+
+## CI/CD con GitHub Actions
+
+El workflow `.github/workflows/deploy.yml` instala dependencias y ejecuta
+`npm test`. Las pruebas verifican el modelo y las respuestas HTTP sin
+necesitar credenciales de MongoDB ni modificar Atlas.
+
+Al hacer push a `main`, si las pruebas pasan, GitHub Actions llama al Deploy Hook
+de Render usando el secret `RENDER_DEPLOY_HOOK_URL`. El hook recibe el SHA del
+commit validado. Los pull requests ejecutan pruebas sin desplegar.
+
+Guardar el hook en Settings > Secrets and variables > Actions del repositorio.
+El valor es privado y no se guarda en archivos del proyecto.
+El auto-deploy directo de Render debe quedar desactivado para que las pruebas
+del workflow controlen cuándo publicar.
+
+En GitHub > Actions se comprueba el pipeline; en Render > Deploys se verifica
+que el mismo commit llegue a estado Live. Un workflow exitoso confirma que
+Render aceptó el hook; el resultado final se confirma en Render y en el API.
 
