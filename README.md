@@ -41,3 +41,8 @@ Ejemplo de cuerpo JSON para POST:
 
 El servidor escucha solamente después de conectarse a MongoDB Atlas.
 Las pruebas de CRUD se pueden ejecutar desde Postman importando la colección incluida.
+
+API publicado: https://luis-express-mongo-auth.onrender.com/api/users
+
+Validación: CRUD comprobado localmente y en producción. Evidencia en evidencias/render.png.
+
