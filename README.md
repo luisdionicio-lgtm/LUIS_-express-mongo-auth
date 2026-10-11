@@ -2,7 +2,25 @@
 
 Laboratorio 08: API CRUD de usuarios organizado en modelos, repositorios,
 servicios, controladores y rutas. La parte 1 de TAREA configura CI/CD;
-la parte 2 (JWT) queda pendiente.
+la parte 2 (JWT) utiliza el proyecto del Laboratorio 07 publicado por separado.
+
+## Laboratorio 07: acceso para el profesor
+
+Aplicación desplegada: [Abrir el inicio de sesión](https://express-auth-dionicio.onrender.com/signIn).
+
+Enlace del despliegue: https://express-auth-dionicio.onrender.com
+
+Repositorio del Laboratorio 07: https://github.com/luisdionicio-lgtm/LAB07_NODE_MONGO_AUTENTICACION
+
+Estas cuentas de demostración permiten revisar el inicio de sesión y los permisos:
+
+| Cuenta | Correo | Contraseña |
+| --- | --- | --- |
+| Usuario | `profesor.usuario.lab07@example.com` | `Profesor#2026User` |
+| Administrador | `admin@terminus.local` | `Admin#2026` |
+
+El usuario puede consultar y editar su perfil. El administrador también puede
+acceder al panel de administración y al listado de usuarios.
 
 ## Ejecutar localmente
 
